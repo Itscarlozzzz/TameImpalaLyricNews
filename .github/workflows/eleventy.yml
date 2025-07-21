@@ -3,12 +3,15 @@ name: Build and Deploy to GitHub Pages
 on:
   push:
     branches: [ master ]   # si tu rama principal se llama main, pon main
-
+permissions:
+  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+  with:
+    persist-credentials: false
 
       - name: Set up Node
         uses: actions/setup-node@v4
